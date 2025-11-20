@@ -2,15 +2,10 @@ const addButton = document.querySelector('.addButton');
 var input = document.querySelector('.input');
 const container = document.querySelector('.container');
 
-
 class item{
     constructor(itemName){
-        
-
         this.createDiv(itemName);
-
     }
-
     createDiv(itemName){
 
         let input = document.createElement('input');
@@ -34,35 +29,23 @@ class item{
         itemBox.appendChild(input);
         itemBox.appendChild(changeButton);
         itemBox.appendChild(DeleteButton);
-
-     
+        
         changeButton.addEventListener('click',() => this.change(input));
-
         DeleteButton.addEventListener('click',() => this.Delete(itemBox));
-
     }
-
     change(input){
-
         input.disabled =  !input.disabled;
     }
-
     Delete(item){
-
         container.removeChild(item);
     }
-
 }
-
 function check(){
-
         if(input.value !=""){
             new item(input.value);
             input.value = "";
         }
-
 }
-
 addButton.addEventListener('click', check);
 window.addEventListener('keydown', (e)=>{
     if(e.which == 13){
